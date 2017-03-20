@@ -1,0 +1,13 @@
+﻿@using QA.Core.Web
+
+@{
+  <form id="moveForm" name="moveForm">
+    <div>
+      <button class="k-button" id="btnMove" type="button">@this.LocalResources("MoveButton")</button>
+      <button class="k-button" id="btnCancelMove" type="button">@this.LocalResources("CancelButton")</button>
+    </div>
+    <div>
+      <input type="checkbox" id="cbDoNotAskAgain" name="IsDoNotAskAgain" />@this.LocalResources("NoAskMore")
+    </div>
+  </form>
+}

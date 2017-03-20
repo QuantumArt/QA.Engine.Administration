@@ -1,0 +1,89 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#
+   string itemList
+    =  @"db
+site
+content_group
+content
+virtual_content
+article
+archive_article
+field
+virtual_field
+virtual_article
+notification
+content_folder
+site_folder
+workflow
+status_type
+style
+snippet
+user
+user_group
+template
+page
+template_object
+page_object
+template_object_format
+page_object_format
+template_object_format_version
+page_object_format_version
+article_version
+site_file
+content_file
+custom_action
+site_permission
+content_permission
+article_permission
+workflow_permission
+site_folder_permission
+entity_type_permission
+action_permission
+visual_editor_plugin
+visual_editor_style";
+#>
+
+using System;
+using System.Runtime.Serialization;
+/// <summary>
+/// Список действий Qp
+/// </summary>
+namespace QA.Engine.Administration.WebApp.Entities
+{
+	/// <summary>
+	/// Список действий Qp
+	/// </summary>
+	[DataContract]
+	public class QpEntityCodes
+	{
+		<#
+			var sr = new StringReader(itemList);
+			while(true)
+			{
+				string str = sr.ReadLine();
+				if (string.IsNullOrEmpty(str))
+				{
+					break;
+				}#>
+
+				[DataMember]
+				public string <#=str#> = @"<#=str#>";
+			<#}
+		#>
+	}
+}
+
+

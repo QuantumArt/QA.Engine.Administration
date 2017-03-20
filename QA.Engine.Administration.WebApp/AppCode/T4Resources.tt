@@ -1,0 +1,237 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Resources" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.ComponentModel.Design" #>
+<#@ import namespace="System.Globalization" #>
+using System;
+using System.Runtime.Serialization;
+using System.Globalization;
+using System.Collections.Generic;
+/// <summary>
+/// Константные ресурсы
+/// </summary>
+namespace QA.Engine.Administration.WebApp.Resources
+{
+<#
+	List<string> files = new List<string>();
+	FileSearch(this.Host.ResolvePath("..\\"), "*.resx", files);
+
+	List<Info> infos = new List<Info>();
+
+	var cultures = CultureInfo.GetCultures(CultureTypes.AllCultures)
+		.Select(s => s.Name.ToLower())
+		.Where(w => !string.IsNullOrEmpty(w) && w.Contains("-"))
+		.ToList();
+
+	foreach(var f in files)
+    {
+		string fileName = Path.GetFileNameWithoutExtension(f);
+		int pos = fileName.IndexOf(".");
+		if (pos > 0)
+        {
+			fileName = fileName.Substring(0, pos);
+        }
+
+		var dir = Path.GetDirectoryName(f);
+
+		if (dir.Contains("obj\\"))
+		{
+			continue;
+		}
+
+		dir = dir.EndsWith("\\") ? dir.Substring(0, dir.LastIndexOf("\\") - 1) : dir;
+
+		if (dir.EndsWith("..\\App_LocalResources") || dir.EndsWith("..\\App_GlobalResources"))
+        {
+			dir = "Global";
+        }
+		else
+		{
+			dir = dir.Replace("\\App_LocalResources", "").Replace("\\App_GlobalResources", "");
+
+			pos = dir.LastIndexOf("\\");
+
+			dir = dir.Substring(
+				pos + 1, dir.Length - (pos + 1));
+        }
+
+		using (ResXResourceReader reader = new ResXResourceReader(f))
+		{
+			reader.UseResXDataNodes = true;
+			foreach (DictionaryEntry item in reader)
+			{
+				ResXDataNode node = (ResXDataNode)item.Value;
+				string comment = node.Comment,
+					key = item.Key.ToString(),
+					value = (string)node.GetValue(null as ITypeResolutionService);
+
+				if(string.IsNullOrWhiteSpace(comment))
+				{
+					comment = value;
+				}
+
+				string culture = string.Empty;
+				if (cultures.Any(a => Path.GetFileName(f).ToLower().IndexOf("." + a) != -1))
+				{
+					culture = cultures.First(a => Path.GetFileName(f).ToLower().IndexOf("." + a) != -1);
+				}
+
+				infos.Add(
+					new Info
+					{
+						GroupName = dir,
+						SubGroupName = fileName,
+						PropertyName = key,
+						Comment = comment,
+						Value = value,
+						Culture = culture
+					});
+			}
+		}
+    }#>
+
+    <#foreach (var gr in infos.GroupBy(g => g.GroupName))
+    {#>
+		#region <#=gr.Key#>
+		[DataContract]
+		public partial class <#=gr.Key#>
+		{
+			<#
+			foreach (var item in gr.GroupBy(g => g.SubGroupName))
+			{#>
+				#region <#=item.Key#>
+				[DataMember]
+				public <#=item.Key#> <#=item.Key#>
+				{
+					get
+					{
+						return new <#=item.Key#>();
+					}
+					set
+					{
+					}
+				}
+				#endregion
+			<#}
+			#>
+		}
+
+		<#
+			foreach (var item in gr.GroupBy(g => g.SubGroupName))
+			{#>
+				#region <#=item.Key#>
+				[DataContract]
+				public partial class <#=item.Key#>
+				{
+					private Dictionary<string, string> _strings = new Dictionary<string, string>();
+
+					<#
+					var groups = infos
+						.Where(g => g.SubGroupName == item.Key);#>
+
+					public <#=item.Key#>()
+					{
+						<#foreach (var sgr in groups)
+						{#>
+							_strings.Add("<#=sgr.PropertyName#><#=string.IsNullOrEmpty(sgr.Culture) ? string.Empty : "_" + sgr.Culture.ToLower()#>", "<#=sgr.Value#>");
+						<#}#>
+					}
+
+					<#
+					groups = groups
+						.Distinct();#>
+
+					<#foreach (var sgr in groups)
+					{#>
+						    /// <summary>
+							/// <#=sgr.Comment#>
+							/// </summary>
+							[DataMember]
+							public string <#=sgr.PropertyName#>
+							{
+								get
+								{
+									if (_strings.ContainsKey("<#=sgr.PropertyName#>" + CultureInfo.CurrentUICulture.Name.ToLower()))
+									{
+										return _strings["<#=sgr.PropertyName#>" + CultureInfo.CurrentUICulture.Name.ToLower()];
+									}
+
+									if (_strings.ContainsKey("<#=sgr.PropertyName#>"))
+									{
+										return _strings["<#=sgr.PropertyName#>"];
+									}
+
+									return string.Empty;
+								}
+								set {}
+							}
+						<#}
+					#>
+				}
+				#endregion
+			<#}
+			#>
+		#endregion
+    <#}
+
+	Console.WriteLine("stop");
+#>
+}
+
+<#+
+	internal class Info
+	{
+		public string GroupName { get; set; }
+		public string SubGroupName { get; set; }
+		public string PropertyName { get; set; }
+		public string Comment { get; set; }
+		public string Value { get; set; }
+		public string Culture { get; set; }
+
+		public override bool Equals(object obj)
+		{
+			if (!(obj is Info))
+			{
+				return false;
+			}
+
+			return ((Info)obj).GetHashCode() == this.GetHashCode();
+		}
+
+		public override int GetHashCode()
+		{
+			return (GroupName + "_" + SubGroupName + "_" + PropertyName).GetHashCode();
+		}
+	}
+
+	void FileSearch(string dir, string template, List<string> files)
+	{
+		try
+		{
+			foreach (string d in Directory.GetDirectories(dir))
+			{
+				foreach (string f in Directory.GetFiles(d, template))
+				{
+					files.Add(f);
+				}
+				FileSearch(d, template, files);
+			}
+		}
+		catch (System.Exception excpt)
+		{
+			Console.WriteLine(excpt.Message);
+		}
+	}
+#>

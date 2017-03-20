@@ -1,0 +1,19 @@
+﻿@using QA.Core.Web
+
+@{
+    ViewBag.Title = this.LocalResources("Title");
+
+    Layout = null;
+}
+<h2>@ViewBag.Title</h2>
+<p>
+    @this.LocalResources("Text1")
+</p>
+<p>
+    @this.LocalResources("Text2")
+</p>
+@* TODO: *@
+@*@if (!HttpContext.Current.Request.ContentType.ToLower().Contains("json"))
+{
+    @Html.Partial("Actions")
+}*@

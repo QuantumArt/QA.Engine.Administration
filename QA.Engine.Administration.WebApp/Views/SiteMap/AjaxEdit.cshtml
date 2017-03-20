@@ -1,0 +1,40 @@
+﻿@using QA.Core.Web
+@model QA.Engine.Administration.WebApp.Models.SiteMap.EditableSiteMapViewModel
+
+<form id="EditItemForm" name="EditItemForm" method="post">
+    <div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Title)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Title)
+                @Html.ValidationMessageFor(x => x.Title)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Name)
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.DiscriminatorId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(x => x.DiscriminatorId, Model.Discriminators)
+                @Html.ValidationMessageFor(x => x.DiscriminatorId)
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.ParentId)
+        @Html.HiddenFor(x => x.Id)
+        <div class="margin-top-5">
+            <button class="k-button" id="btnEdit" type="submit">@this.LocalResources("EditButton")</button>
+            <button class="k-button" id="btnEditCancel" type="button">@this.LocalResources("CancelEditButton")</button>
+        </div>
+    </div>
+</form>

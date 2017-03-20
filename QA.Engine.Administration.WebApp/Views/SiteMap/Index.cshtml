@@ -1,0 +1,72 @@
+﻿@using QA.Core.Web
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/pages/sitemap/index")
+    @Scripts.Render("~/bundles/pages/sitemap/archive")
+
+    @Scripts.Render("~/bundles/contextmenu")
+}
+
+@section styles
+{
+    @Styles.Render("~/Content/contextmenu")
+    @Styles.Render("~/Content/css/sitemap/index")
+}
+
+<style type="text/css">
+    #sitemap-tabstrip .k-content {
+        padding-right: 0px;
+    }
+</style>
+@{
+    <div id="sitemap-tabstrip">
+        <ul>
+            <li class="k-state-active" id="tabSiteMap">@this.LocalResources("SiteMapTabTitle")</li>
+            <li id="tabArchive">@this.LocalResources("ArchiveTabTitle")</li>
+        </ul>
+        <div>
+            <div id="filter-container" class="margin-bottom-20">
+                @Html.Action("Filter", "SiteMap")
+            </div>
+            <div id="toolbar-container" class="margin-bottom-20">
+                @Html.Action("Toolbar", "SiteMap")
+            </div>
+            <div id="splitter-container" class="height-600">
+                <div id="splitter" class="height-100-percent">
+                    <div>
+                        <div id="treeview" class="height-100-percent">
+                        </div>
+                    </div>
+                    <div>
+                        <div id="tabstrip">
+                            <ul>
+                                <li class="k-state-active" id="tabCommon">@this.LocalResources("CommonTabTitle")</li>
+                                <li id="tabRegions">@this.LocalResources("RegionsTabTitle")</li>
+                                <li id="tabWidgets">@this.LocalResources("WidgetsTabTitle")</li>
+                                <li id="tabContentVersions">@this.LocalResources("ContentVersionsTabTitle")</li>
+                            </ul>
+                            <div>
+                                @this.LocalResources("NoDataMessage")
+                            </div>
+                            <div>
+                                @this.LocalResources("NoDataMessage")
+                            </div>
+                            <div>
+                                @this.LocalResources("NoDataMessage")
+                            </div>
+                            <div>
+                                @this.LocalResources("NoDataMessage")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul id="contextmenu" class="jeegoocontext cm_default">
+            </ul>
+        </div>
+        <div>
+            @this.LocalResources("NoDataMessage")
+        </div>
+    </div>
+}

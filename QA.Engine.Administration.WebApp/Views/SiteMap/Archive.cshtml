@@ -1,0 +1,37 @@
+﻿@using QA.Core.Web
+
+@section styles
+{
+
+}
+
+@{
+    Layout = null;
+    <div id="archive-toolbar-container" class="margin-bottom-20 margin-top-20">
+        <button class="k-button" id="btnRefresh">@this.LocalResources("RefreshItem")</button>
+        <button class="k-button" id="btnRestore">@this.LocalResources("RestoreItem")</button>
+        <button class="k-button" id="btnDelete">@this.LocalResources("DeleteItem")</button>
+    </div>
+    <div id="archive-splitter-container" class="height-600">
+        <div id="archive-splitter" class="height-100-percent">
+            <div>
+                <div id="archive-treeview" class="height-100-percent">
+                </div>
+            </div>
+            <div>
+                <div id="archive-tabstrip">
+                    <ul>
+                        <li class="k-state-active" id="tabCommon">@this.LocalResources("CommonTabTitle")</li>
+                    </ul>
+                    <div>
+                        @this.LocalResources("NoDataMessage")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="archiveRestoreWindow" class="display-none"></div>
+    <div id="archiveDeleteWindow" class="display-none"></div>
+    <ul id="archive-contextmenu" class="jeegoocontext cm_default">
+    </ul>
+}

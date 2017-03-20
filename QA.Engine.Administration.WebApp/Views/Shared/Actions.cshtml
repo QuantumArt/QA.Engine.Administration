@@ -1,0 +1,15 @@
+﻿@using QA.Core.Web
+
+<p>@this.LocalResources("AlsoText")</p>
+
+<ul>
+    <li>
+        <a href="@Url.Content("~")">@this.LocalResources("GoToText")</a> @this.LocalResources("GoToMainPage")
+    </li>
+    @if (HttpContext.Current.Request.UrlReferrer != null)
+    {
+        <li>
+            <a href="@HttpContext.Current.Request.UrlReferrer.LocalPath">@this.LocalResources("BackText")</a> @this.LocalResources("BackToPreviouslyPage")
+        </li>
+    }
+</ul>

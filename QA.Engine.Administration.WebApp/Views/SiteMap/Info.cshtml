@@ -1,0 +1,87 @@
+﻿@using QA.Core.Web
+@model QA.Engine.Administration.WebApp.Models.SiteMap.EditableSiteMapViewModel
+
+<div>
+    @using (Html.BeginForm(MVC.SiteMap.ActionNames.AjaxEditItem, MVC.SiteMap.Name, FormMethod.Post, new { id = "EditForm" }))
+    {
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Id)
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(x => x.Id, new { @class = "k-textbox width-400" })
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => Model.TypeName)
+            </div>
+            <div class="editor-field">
+                @if (!string.IsNullOrEmpty(Model.Icon))
+                {
+                    <img src="@Url.Content(Model.Icon)" alt="" class="button-base" />
+                    @Html.DisplayFor(x => x.TypeName, new { @class = "k-textbox width-400" })
+                }
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Title)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Title, new { @class = "k-textbox width-400" })
+                @Html.ValidationMessageFor(x => x.Title)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Name, new { @class = "k-textbox width-400 k-state-disabled", disabled = "disabled" })
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.ItemStateName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.ItemStateName, new { @class = "k-textbox width-400 k-state-disabled", disabled = "disabled" })
+                @Html.ValidationMessageFor(x => x.ItemStateName)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.CultureName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.CultureName, new { @class = "k-textbox width-400 k-state-disabled", disabled = "disabled" })
+                @Html.ValidationMessageFor(x => x.CultureName)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.IsVisible)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(x => x.IsVisible, new { @class = "k-state-disabled", disabled = "disabled" })
+                @Html.ValidationMessageFor(x => x.IsVisible)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.IsInSitemap)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(x => x.IsInSitemap, new { @class = "k-state-disabled", disabled = "disabled" })
+                @Html.ValidationMessageFor(x => x.IsInSitemap)
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.Id)
+        <div class="margin-top-5">
+            <button class="k-button" id="btnEdit" type="submit">@this.LocalResources("EditButton")</button>
+            <button class="k-button" id="btnRefresh" type="button">@this.LocalResources("RefreshButton")</button>
+        </div>
+    }
+</div>

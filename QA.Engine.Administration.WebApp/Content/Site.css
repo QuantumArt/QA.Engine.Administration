@@ -1,0 +1,368 @@
+body {
+  font-size: .85em;
+  font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+  color: #232323;
+  background-color: #fff;
+}
+
+header, footer, nav, section {
+  display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset {
+  border: 1px solid #ddd;
+  padding: 0 1.4em 1.4em 1.4em;
+  margin: 0 0 1.5em 0;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+textarea {
+  min-height: 75px;
+}
+
+.editor-label {
+  margin: 1em 0 0 0;
+  font-weight: bold;
+}
+
+.editor-field {
+  margin: 0.5em 0 0 0;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+
+.field-validation-error {
+  color: #f00;
+}
+
+.field-validation-valid {
+  display: none;
+}
+
+.input-validation-error {
+  border: 1px solid #f00;
+  background-color: #fee;
+}
+
+.validation-summary-errors {
+  font-weight: bold;
+  color: #f00;
+}
+
+.validation-summary-valid {
+  display: none;
+}
+
+/* global toolbar */
+
+.global-toolbar {
+  margin-bottom: 10px;
+}
+
+/* other */
+
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+.margin-top-20 {
+  margin-top: 5px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.display-none {
+  display: none;
+}
+
+.height-100-percent {
+  height: 100% !important;
+}
+
+.height-600 {
+  height: 600px;
+}
+
+.width-300 {
+  width: 300px !important;
+}
+
+.width-400 {
+  width: 400px !important;
+}
+
+/* Custom styles for functionality
+-----------------------------------------------------------*/
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  position: absolute;
+  left: -10000px;
+}
+
+/* Icons
+------------------------------------------------------------*/
+
+.command {
+  height: 1.1em;
+  padding: 1px 1px 1px 18px;
+  margin-left: 5px;
+}
+
+.add {
+  background: url('img/add.png') no-repeat;
+}
+
+.edit {
+  background: url('img/page_white_edit.png') no-repeat;
+}
+
+.page {
+  background: url('img/page_white.png') no-repeat;
+}
+
+.organize {
+  background: url('img/application_cascade.png') no-repeat;
+}
+
+.done {
+  background: url('img/accept.png') no-repeat;
+}
+
+.delete {
+  background: url('img/delete.png') no-repeat;
+}
+
+.restore {
+  background: url('img/arrow_undo.png') no-repeat;
+}
+
+.new {
+  background: url('img/error.png') no-repeat;
+}
+
+.tree {
+  background: url('img/chart_organisation.png') no-repeat;
+}
+
+.history {
+  background: url('img/version.gif') no-repeat;
+}
+
+.search {
+  background: url('img/zoom.png') no-repeat;
+}
+
+.refresh {
+  background: url('img/arrow_refresh.png') no-repeat;
+}
+
+.world {
+  background: url('img/page_world.png') no-repeat;
+}
+
+.info {
+  background: url('img/information.png') no-repeat;
+}
+
+.preview {
+  background: url('img/eye.png') no-repeat;
+}
+
+.publish {
+  background: url('img/accept.png') no-repeat;
+}
+
+.is_invisible {
+  background: url('img/is_invisible.gif') no-repeat;
+}
+
+/*  QP8 Styles
+-----------------------------------------------------------*/
+
+HTML, BODY {
+  margin: 0;
+  padding: 0;
+}
+
+BODY {
+  background-color: #fff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: .7em;
+}
+
+.content H1, .content H2, .content H3, .content H4 {
+  margin-bottom: .5em;
+  font: 1.7em Verdana, Arial, Helvetica, sans-serif;
+}
+
+.content H2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.content H3 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.content H4 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+BLOCKQUOTE {
+  margin-left: 10em;
+  padding-left: 1em;
+  border-left: 2px solid #ccc;
+}
+
+CODE, PRE {
+  padding: 1px 2px;
+  background: #eee;
+  font: 1.2em/1 "Courier New", Courier, monospace;
+}
+
+PRE {
+  margin: 0;
+  padding: 5px;
+  border: 1px dashed #aaa;
+  background: #eee;
+  font-size: .9em;
+  line-height: 1.5em;
+}
+
+SUP, SUB {
+  position: relative;
+  vertical-align: baseline;
+}
+
+SUP {
+  top: -.4em;
+}
+
+SUB {
+  bottom: -.3em;
+}
+
+HR {
+  height: 1px;
+  border-width: 0;
+  background-color: #ccc;
+  color: #ccc;
+}
+
+/*  FIXES
+    -------------------------------------------*/
+
+body ul.cm_default span.icon.hover {
+  background-position: 0 0px !important;
+}
+
+.k-in .region {
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wide-frame {
+  border: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+delete-confirm {
+  margin-right: 5px !important;
+}
+
+.delete-message {
+}
+
+.delete-cancel {
+}
+
+.button-refresh {
+  background-image: url(/content/img/arrow_refresh.png); /* 16px x 16px */
+  background-color: transparent; /* make the button transparent */
+  background-repeat: no-repeat; /* make the background image appear only once */
+  background-position: 0px 0px; /* equivalent to 'top left' */
+  border: none; /* assuming we don't want any borders */
+  cursor: pointer; /* make the cursor like hovering over an <a> element */
+  height: 16px; /* make this the size of your image */
+  padding-left: 16px; /* make text start to the right of the image */
+  vertical-align: top; /* align the text vertically centered */
+  margin-top: 5px;
+}
+
+.button-base {
+  background-color: transparent; /* make the button transparent */
+  background-repeat: no-repeat; /* make the background image appear only once */
+  background-position: 0px 0px; /* equivalent to 'top left' */
+  border: none; /* assuming we don't want any borders */
+  cursor: default; /* make the cursor like hovering over an <a> element */
+  height: 16px; /* make this the size of your image */
+  vertical-align: middle; /* align the text vertically centered */
+  margin-right: 5px;
+}
+
+.disabled {
+  color: #999;
+  cursor: default;
+}
+
+.new {
+  background: url(/content/img/new.png) no-repeat 0px -2px;
+  padding: 1px 1px 0 15px;
+  position: absolute;
+  left: 7px;
+  top: -5px;
+}
+
+.versions {
+  padding: 0;
+  position: absolute;
+  left: -5px;
+  top: 2px;
+}
+
+.notVisible {
+  color: gray;
+}
+
+.tree-item {
+  margin-left: 0px;
+}
+
+.icon-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.k-widget .k-autocomplete {
+  width: 40em;
+}

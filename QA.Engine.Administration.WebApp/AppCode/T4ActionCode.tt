@@ -1,0 +1,369 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#
+   string actionList
+    =  @"home
+about
+refresh_db
+edit_profile
+update_profile
+refresh_profile
+list_site
+new_site
+refresh_sites
+cancel_site
+edit_site
+save_site
+update_site
+remove_site
+multiple_remove_site
+copy_site
+assemble_site
+assemble_contents
+refresh_site
+capture_lock_site
+search_in_articles
+refresh_search_in_articles
+site_library
+popup_site_library
+refresh_site_library
+new_site_folder
+save_site_folder
+update_site_folder
+refresh_site_folder
+edit_site_folder
+remove_site_folder
+new_content_folder
+save_content_folder
+update_content_folder
+refresh_content_folder
+edit_content_folder
+remove_content_folder
+multiple_remove_site_file
+remove_site_file
+preview_site_file
+download_site_file
+edit_site_file
+update_site_file
+multiple_remove_content_file
+remove_content_file
+preview_content_file
+download_content_file
+edit_content_file
+update_content_file
+new_content_group
+edit_content_group
+save_content_group
+update_content_group
+remove_content_group
+refresh_content_group
+refresh_content_groups
+list_content
+new_content
+refresh_contents
+save_content
+edit_content
+update_content
+remove_content
+multiple_remove_content
+copy_content
+refresh_content
+content_library
+popup_content_library
+refresh_content_library
+multiple_select_contents_for_union
+list_field
+new_field
+refresh_fields
+save_field
+edit_field
+update_field
+remove_field
+multiple_remove_field
+refresh_field
+list_article
+refresh_articles
+select_article
+multiple_select_article
+cancel_article
+new_article
+save_article
+edit_article
+update_article
+remove_article
+multiple_remove_article
+copy_article
+refresh_article
+move_to_archive_article
+capture_lock_article
+multiple_move_to_archive_article
+preview_article_version
+compare_article_version_with_current
+compare_article_versions
+refresh_article_versions
+restore_article_version
+remove_article_version
+refresh_article_version
+multiple_remove_article_version
+list_article_version
+list_virtual_content
+new_virtual_content
+refresh_virtual_contents
+save_virtual_content
+edit_virtual_content
+update_virtual_content
+remove_virtual_content
+multiple_remove_virtual_content
+refresh_virtual_content
+list_virtual_field
+refresh_virtual_fields
+edit_virtual_field
+update_virtual_field
+refresh_virtual_field
+list_virtual_article
+refresh_virtual_article
+view_virtual_article
+refresh_virtual_articles
+view_archive_article
+restore_from_archive_article
+multiple_restore_from_archive_article
+list_archive_article
+multiple_remove_archive_article
+remove_archive_article
+refresh_archive_article
+refresh_archive_articles
+list_action_log
+list_button_trace
+list_removed_entities
+refresh_action_log
+list_successful_sessions
+list_failed_sessions
+multiple_select_site
+multiple_select_content
+list_custom_action
+new_custom_action
+refresh_custom_actions
+edit_custom_action
+save_custom_action
+update_custom_action
+remove_custom_action
+multiple_remove_custom_action
+refresh_custom_action
+apply_field_default_value
+recreate_dynamic_images
+clear_content
+list_user
+multiple_select_user
+refresh_users
+new_user
+save_user
+copy_user
+edit_user
+update_user
+refresh_user
+remove_user
+list_user_group
+refresh_user_groups
+new_user_group
+save_user_group
+copy_user_group
+edit_user_group
+update_user_group
+refresh_user_group
+remove_user_group
+list_site_permission
+refresh_site_permissions
+new_site_permission
+save_site_permission
+edit_site_permission
+update_site_permission
+refresh_site_permission
+remove_site_permission
+multiple_remove_site_permission
+list_content_permission
+refresh_content_permissions
+new_content_permission
+save_content_permission
+edit_content_permission
+update_content_permission
+refresh_content_permission
+remove_content_permission
+multiple_remove_content_permission
+list_article_permission
+refresh_article_permissions
+new_article_permission
+save_article_permission
+edit_article_permission
+update_article_permission
+refresh_article_permission
+remove_article_permission
+multiple_remove_article_permission
+list_workflow_permission
+refresh_workflow_permissions
+new_workflow_permission
+save_workflow_permission
+edit_workflow_permission
+update_workflow_permission
+refresh_workflow_permission
+remove_workflow_permission
+multiple_remove_workflow_permission
+list_site_folder_permission
+refresh_site_folder_permissions
+new_site_folder_permission
+save_site_folder_permission
+edit_site_folder_permission
+update_site_folder_permission
+refresh_site_folder_permission
+remove_site_folder_permission
+multiple_remove_site_folder_permission
+select_user
+select_user_group
+enable_article_permissions
+list_child_content_permission
+refresh_child_content_permissions
+multiple_change_child_content_permission
+multiple_remove_child_content_permission
+change_all_child_content_permission
+remove_all_child_content_permission
+change_child_content_permission
+remove_child_content_permission
+list_child_article_permission
+refresh_child_article_permissions
+multiple_change_child_article_permission
+multiple_remove_child_article_permission
+change_all_child_article_permission
+remove_all_child_article_permission
+change_child_article_permission
+remove_child_article_permission
+save_child_content_permission
+save_child_article_permission
+list_notification
+refresh_notifications
+new_notification
+save_notification
+edit_notification
+update_notification
+refresh_notification
+remove_notification
+edit_notification_template_format
+update_notification_template_format
+refresh_notification_template_format
+action_permission_tree
+refresh_action_permission_tree
+refresh_entity_type_permission_node
+refresh_action_permission_node
+change_entity_type_permission
+update_entity_type_permission_changes
+remove_entity_type_permission_changes
+change_action_permission
+update_action_permission_changes
+remove_action_permission_changes
+list_entity_type_permission
+refresh_entity_type_permissions
+new_entity_type_permission
+save_entity_type_permission
+edit_entity_type_permission
+update_entity_type_permission
+refresh_entity_type_permission
+remove_entity_type_permission
+multiple_remove_entity_type_permission
+list_action_permission
+refresh_action_permissions
+new_action_permission
+save_action_permission
+edit_action_permission
+update_action_permission
+refresh_action_permission
+remove_action_permission
+multiple_remove_action_permission
+unbind_notification
+multiple_remove_notification
+assemble_notification
+multiple_assemble_notification
+list_visual_editor_plugin
+new_visual_editor_plugin
+edit_visual_editor_plugin
+update_visual_editor_plugin
+refresh_visual_editor_plugin
+remove_visual_editor_plugin
+save_visual_editor_plugin
+save_article_and_up
+update_article_and_up
+refresh_visual_editor_plugins
+list_content_permission_for_child
+list_article_permission_for_child
+custom_634892886978894446
+custom_634892891261583752
+custom_634892893022026292
+custom_634898094705248738
+custom_634898925753352599
+custom_634901353592264365
+list_visual_editor_style
+new_visual_editor_style
+edit_visual_editor_style
+update_visual_editor_style
+refresh_visual_editor_style
+remove_visual_editor_style
+save_visual_editor_style
+refresh_visual_editor_styles
+list_workflow
+new_workflow
+edit_workflow
+list_status_type
+new_status_type
+edit_status_type
+update_status_type
+refresh_status_type
+remove_status_type
+save_status_type
+refresh_status_types
+update_workflow
+refresh_workflow
+remove_workflow
+save_workflow
+refresh_workflows";
+#>
+
+using System;
+using System.Runtime.Serialization;
+/// <summary>
+/// Список действий Qp
+/// </summary>
+namespace QA.Engine.Administration.WebApp.Actions
+{
+	/// <summary>
+	/// Список действий Qp
+	/// </summary>
+	[DataContract]
+	public class QpActionCodes
+	{
+		<#
+			var sr = new StringReader(actionList);
+			while(true)
+			{
+				string str = sr.ReadLine();
+				if (string.IsNullOrEmpty(str))
+				{
+					break;
+				}#>
+
+				[DataMember]
+				public string <#=str#> = @"<#=str#>";
+			<#}
+		#>
+	}
+}
+
+

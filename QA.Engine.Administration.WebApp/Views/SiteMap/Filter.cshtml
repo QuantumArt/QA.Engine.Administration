@@ -1,0 +1,23 @@
+﻿@using QA.Core.Web
+<div id="filter">
+    <div class="inline-block">
+        <div class="editor-label">
+            @this.LocalResources("CultureParameter")
+        </div>
+        <div>
+            <input id="culture" placeholder="" />
+            <input id="btnRefreshCulture" type="button" class="button-refresh" title="@this.LocalResources("RefreshButton")" />
+        </div>
+    </div>
+    <div class="inline-block">
+        <div class="editor-label">
+            @this.LocalResources("RegionsParameter")
+        </div>
+        <div>
+            <input id="region" placeholder="" />
+        </div>
+    </div>
+    <div class="margin-top-5">
+        <button id="applyFilter" class="k-button">@this.LocalResources("ApplyFilterButton")</button>
+    </div>
+</div>

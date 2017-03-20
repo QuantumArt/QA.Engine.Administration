@@ -1,0 +1,66 @@
+﻿@using QA.Core.Web
+@model QA.Engine.Administration.WebApp.Models.SiteMap.AddSiteMapViewModel
+
+<form id="AddItemForm" name="AddItemForm" method="post">
+    <div>
+        @if (!Model.IsVersion)
+        {
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.Title)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(x => x.Title)
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+            </div>
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(x => x.Name)
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+            </div>
+        }
+        @if (Model.IsVersion)
+        {
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.VersionTypeId)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonForEnum(m => m.VersionTypeId, null, null, null, null)
+                </div>
+            </div>
+        }
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.DiscriminatorId)
+            </div>
+            <div class="editor-field">
+                @{
+                    var items = Html.GetUnobtrusiveValidationAttributes("DiscriminatorId");
+                    items.Add("style", "width:300px");
+                }
+
+                @Html.TextBoxFor(x => x.DiscriminatorId, items)
+                @Html.ValidationMessageFor(x => x.DiscriminatorId)
+                <input type="button" class="button-refresh" title="@this.LocalResources("RefreshButton")" />
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.StructuralVersionParentId)
+        @Html.HiddenFor(x => x.ParentId)
+        @Html.HiddenFor(x => x.IsVersion)
+        @Html.HiddenFor(x => x.Parent.ExtensionId)
+        @Html.HiddenFor(x => x.Parent.Name)
+        @Html.HiddenFor(x => x.Parent.Title)
+        @Html.HiddenFor(x => x.Parent.DiscriminatorId)
+        @Html.HiddenFor(x => x.PreferredContentId)
+        <div class="margin-top-5">
+            <button class="k-button" id="btnAdd" type="submit">@this.LocalResources("AddButton")</button>
+            <button class="k-button" id="btnAddCancel" type="button">@this.LocalResources("CancelButton")</button>
+        </div>
+    </div>
+</form>

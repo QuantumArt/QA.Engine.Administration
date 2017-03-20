@@ -1,0 +1,20 @@
+.region {
+  font-style: italic;
+  color: blue;
+}
+
+.culture {
+  font-weight: bold;
+  color: darkgreen;
+}
+
+.unpublished {
+  background: url('/Content/img/page_white_star.png') no-repeat;
+  background-size: auto;
+  width: 16px;
+  height: 16px;
+}
+
+.item-version {
+  opacity: 0.5;
+}

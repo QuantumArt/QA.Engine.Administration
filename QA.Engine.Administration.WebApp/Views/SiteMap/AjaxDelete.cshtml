@@ -1,0 +1,25 @@
+﻿@using QA.Core.Web
+@model QA.Engine.Administration.WebApp.Models.SiteMap.DeleteSiteMapViewModel
+
+<div>
+    @using (Html.BeginForm(MVC.SiteMap.ActionNames.AjaxDeleteItem, MVC.SiteMap.Name, FormMethod.Post, new { id = "DeleteForm" }))
+    {
+        <div>
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.IsDeleteAllVersions)
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBox("IsDeleteAllVersions", Model.IsDeleteAllVersions ?? false)
+                </div>
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.Id)
+        @Html.HiddenFor(x => x.IsVersion)
+        @Html.HiddenFor(x => x.IsPage)
+        <div class="margin-top-5">
+            <button class="k-button" id="btnDelete" type="submit">@this.LocalResources("DeleteButton")</button>
+            <button class="k-button" id="btnCancel" type="button">@this.LocalResources("CancelButton")</button>
+        </div>
+    }
+</div>

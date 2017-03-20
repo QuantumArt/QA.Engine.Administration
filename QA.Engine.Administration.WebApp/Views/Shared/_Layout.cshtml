@@ -1,0 +1,54 @@
+﻿@using QA.Engine.Administration.WebApp.Models
+@using QA.Core.Web
+@using QA.Engine.Administration.WebApp.Configuration
+@using QA.Core.Web.Qp;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendoui/style")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    @Html.Hidden("QpHostId", QpHelper.HostId)
+    @Html.Hidden("BackendSid", QpHelper.BackendSid)
+    @Html.Hidden("CustomerCode", QpHelper.CustomerCode)
+    @Html.Hidden("SiteId", QpHelper.SiteId)
+
+    @if (!AdministrationAuthorizationHelper.IsAuthorize() || AppSettings.IsViewSiteList || !AdministrationAuthorizationHelper.IsEnabled)
+    {
+        @Html.Partial("GlobalToolbar")
+    }
+
+    @if (!AdministrationAuthorizationHelper.IsAuthorize() || !AdministrationAuthorizationHelper.IsEnabled)
+    {
+        @Html.Partial("Menu")
+    }
+
+    @RenderBody()
+
+    <script>
+        @(Html.Raw(new ScriptModel().GetScript()))
+        @(Html.Raw(new ScriptModel().GetContentsScript()))
+        @(Html.Raw(new ScriptModel().GetCultureScript()))
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/qp")
+
+    @Scripts.Render("~/bundles/kendo")
+
+    @Scripts.Render("~/bundles/scripts")
+
+    @Scripts.Render("~/bundles/pages/shared/menu")
+    @Scripts.Render("~/bundles/pages/shared/toolbar")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@using QA.Engine.Administration.WebApp.Controllers
+@using QA.Core.Web
+
+<div id="main-menu">
+    <div id="menu-store">
+        <ul id="menu">
+            <li>@Html.ActionLink(
+                    this.LocalResources("IndexMenuItemTitle"),
+                    SiteMapController.ActionNameConstants.Index,
+                    SiteMapController.NameConst)</li>
+        </ul>
+    </div>
+</div>

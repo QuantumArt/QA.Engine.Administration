@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Настройка проекта</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/custom/timeline/timeline.css")" />
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 id="timeline">Шаги по настройке админки в QP</h1>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-badge danger"><i class="glyphicon glyphicon-road"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">Создаем новое пользовательское действие</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Шаг номер 1.</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Открываем Каталог -> Пользовательские действия -> Создаем новое пользовательское действие</p>
+                        <img src="@Url.Content("~/Content/custom/timeline/qp_setup_sitemap_step1.png")" />
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge warning"><i class="glyphicon glyphicon-plane"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">Окно редактирования</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Шаг номер 2.</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Открылось окно создания нового пользовательского действия</p>
+                        <img src="@Url.Content("~/Content/custom/timeline/qp_setup_sitemap_step2.png")" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge info"><i class="glyphicon glyphicon-piggy-bank"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">Заполняем нужные данные</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Шаг номер 3.</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>В поле "Тип действия" - выбираем нужный тип, например "Просмотр", "Обновить", "Чтение" и т.д.</p>
+                        <p>В поле "Тип сущности" - выбираем "Сайт"</p>
+                        <p>В поле URL вводим адрес к сайту + "/SiteMap"</p>
+                        <p>В поле "Выбранные сайты" выбираем сайт к которому будет привязано пользовательское действие, или оставляем пустым, чтобы привязать ко всем сайтам</p>
+                        <p>Заполняем остальные поля и жмем сохранить</p>
+                        <img src="@Url.Content("~/Content/custom/timeline/qp_setup_sitemap_step3.png")" />
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge success"><i class="glyphicon glyphicon-cutlery"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">.. Profit!</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Шаг номер 4.</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>
+                            В контекстном меню сайта выбираем наше действие
+                        </p>
+                        <img src="@Url.Content("~/Content/custom/timeline/qp_setup_sitemap_step4.png")" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

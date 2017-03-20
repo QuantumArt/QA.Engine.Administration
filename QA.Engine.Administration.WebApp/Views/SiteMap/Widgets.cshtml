@@ -1,0 +1,16 @@
+﻿@using QA.Core.Web
+
+@model QA.Engine.Administration.WebApp.Models.SiteMap.SiteMapWidgetsViewModel
+
+@Styles.Render("~/Content/css/sitemap/widgets")
+
+<script type="text/x-kendo-template" id="widgetGridToolbar">
+    <div>
+        <button class="k-button" id="btnAddWidget" type="button">@this.LocalResources("AddButton")</button>
+        <button class="k-button" id="btnPublishAll" type="button">@this.LocalResources("PublishAll")</button>
+        <button class="k-button" id="btnPublishSelected" type="button">@this.LocalResources("PublishSelected")</button>
+        <button class="k-button" id="btnWidgetRefresh" type="button">@this.LocalResources("RefreshButton")</button>
+    </div>
+</script>
+@Html.Hidden("SiteMapWidgetsViewModel.AbstractItemId", Model.Id)
+<div id="gridWidgets" class="height-100-percent"></div>

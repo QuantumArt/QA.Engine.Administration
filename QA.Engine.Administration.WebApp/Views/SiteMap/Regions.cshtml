@@ -1,0 +1,23 @@
+﻿@using QA.Core.Web
+
+@model QA.Engine.Administration.WebApp.Models.GroupViewModel<QA.Engine.Administration.WebApp.Models.SiteMap.SiteMapRegionsGroupViewModel>
+
+<script type="text/x-kendo-template" id="regionGridToolbar">
+    <div>
+        <button class="k-button" id="btnRegionRefresh" type="button">@this.LocalResources("RefreshButton")</button>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="regionDetailTemplate">
+    <div id="tabStripRegions">
+        <ul>
+            <li class="k-state-active">
+                @this.LocalResources("RegionTabTitle")
+            </li>
+        </ul>
+        <div>
+            <div id="contentRegions"></div>
+        </div>
+    </div>
+</script>
+@Html.Hidden("SiteMapRegionsViewModel.AbstractItemId", Model.Id)
+<div id="gridRegions" class="height-100-percent"></div>

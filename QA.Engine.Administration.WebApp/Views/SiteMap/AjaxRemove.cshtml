@@ -1,0 +1,49 @@
+﻿@using QA.Core.Web
+@model QA.Engine.Administration.WebApp.Models.SiteMap.RemoveSiteMapViewModel
+
+<div>
+    @using (Html.BeginForm(MVC.SiteMap.ActionNames.AjaxRemoveItem, MVC.SiteMap.Name, FormMethod.Post, new { id = "RemoveForm" }))
+    {
+        <div @(Model.IsVersion ? "disabled=\"disabled\"" : string.Empty)>
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.IsDeleteAllVersions)
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBox("IsDeleteAllVersions", Model.IsDeleteAllVersions ?? false)
+                </div>
+            </div>
+            <div id="blockContentVersions">
+                <div>
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.OperationsByContentVersion)
+                    </div>
+                    <div class="editor-field">
+                        @Html.RadioButtonForEnum(x => x.OperationsByContentVersion,
+                        null, null, null, null)
+                    </div>
+                </div>
+                <div>
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.ContentVersionId)
+                    </div>
+                    <div class="editor-field">
+                        @{
+                            var items = Html.GetUnobtrusiveValidationAttributes("ContentVersionId");
+                            items.Add("style", "width:300px");
+                        }
+
+                        @Html.TextBoxFor(x => x.ContentVersionId, items)
+                        <input type="button" class="button-refresh" title="@this.LocalResources("RefreshButton")" />
+                        @Html.ValidationMessageFor(x => x.ContentVersionId)
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.Id)
+        <div class="margin-top-5">
+            <button class="k-button" id="btnDelete" type="submit">@this.LocalResources("DeleteButton")</button>
+            <button class="k-button" id="btnCancel" type="button">@this.LocalResources("CancelButton")</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@using QA.Core.Web
+
+@model QA.Engine.Administration.WebApp.Models.SiteMap.SiteMapContentVersionsViewModel
+
+<script type="text/x-kendo-template" id="contentVersionsGridToolbar">
+    <div>
+        <button class="k-button" id="btnAddContentVersion" type="button">@this.LocalResources("AddButton")</button>
+        <button class="k-button" id="btnEditContentVersion" type="button">@this.LocalResources("EditButton")</button>
+        <button class="k-button" id="btnViewHistoryContentVersion" type="button">@this.LocalResources("HistoryButton")</button>
+        <button class="k-button" id="btnPreview" type="button">@this.LocalResources("PreviewButton")</button>
+        <button class="k-button" id="btnContentVersionsRefresh" type="button">@this.LocalResources("RefreshButton")</button>
+        <button class="k-button" id="btnDeleteContentVersion" type="button">@this.LocalResources("DeleteButton")</button>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="contentVersionDetailTemplate">
+    <div id="tabStripContentVersions">
+        <ul>
+            <li class="k-state-active">
+                @this.LocalResources("RegionTabTitle")
+            </li>
+        </ul>
+        <div>
+            <div id="contentVersionRegions"></div>
+        </div>
+    </div>
+</script>
+@Html.Hidden("SiteMapContentVersionsViewModel.AbstractItemId", Model.Id)
+<div id="gridContentVersions" class="height-100-percent"></div>

@@ -1,0 +1,13 @@
+.k-grid[id=gridWidgets] td {
+  border-style: none !important;
+  border-width: 0 0 0 1px;
+  padding: .4em .6em;
+  overflow: hidden;
+  line-height: 1.6em;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+}
+
+.k-grid[id=gridWidgets] .k-detail-cell div {
+  border-style: none !important;
+}
