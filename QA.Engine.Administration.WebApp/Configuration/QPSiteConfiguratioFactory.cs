@@ -31,8 +31,6 @@ namespace QA.Engine.Administration.WebApp.Configuration
         protected virtual string GetConnectionString(string customerCode)
         {
             return DBConnector.GetConnectionString(customerCode);
-            //QpCis
-            //return "Application Name=QP7.Qa_Beeline_Main;Initial Catalog=qp_beeline_main_cis;Data Source=mscsql01;User ID=publishing;Password=QuantumartHost.SQL;";
         }
     }
 }
