@@ -106,6 +106,10 @@
       <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -130,28 +134,28 @@
       <HintPath>..\packages\QA.Core.3.0.4.0\lib\net45\QA.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Data, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Data.3.0.2.0\lib\net45\QA.Core.Data.dll</HintPath>
+    <Reference Include="QA.Core.Data, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Data.3.0.4\lib\net45\QA.Core.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Engine, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Engine.2.1.1.0\lib\net45\QA.Core.Engine.dll</HintPath>
+    <Reference Include="QA.Core.Engine, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Engine.2.1.2\lib\net45\QA.Core.Engine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Engine.FakeImpl, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QA.Core.Engine.FakeImpl.2.1.0.0\lib\net45\QA.Core.Engine.FakeImpl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Engine.QPData, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.1.0\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
+    <Reference Include="QA.Core.Engine.QPData, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.4\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Service.Interaction, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QA.Core.Service.Interaction.3.0.2.0\lib\net45\QA.Core.Service.Interaction.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Web, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Web.3.0.3.0\lib\net45\QA.Core.Web.dll</HintPath>
+    <Reference Include="QA.Core.Web, Version=3.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Web.3.0.5-alpha\lib\net45\QA.Core.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Validation.Xaml, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -162,12 +166,12 @@
       <HintPath>..\packages\QA.Validation.Xaml.Extensions.1.0.2.0\lib\net40\QA.Validation.Xaml.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Quantumart, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Quantumart.2.0.4.0\lib\net45\Quantumart.dll</HintPath>
+    <Reference Include="Quantumart, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Quantumart.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Quantumart.QP8.Assembling, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Quantumart.QP8.BLL.2.0.4.0\lib\net45\Quantumart.QP8.Assembling.dll</HintPath>
+    <Reference Include="Quantumart.QP8.Assembling, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Quantumart.QP8.Assembling.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Quantumart.QP8.BLL, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -251,10 +255,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminQpDbConnector.cs" />
+    <Compile Include="AdminUnitOfWork.cs" />
     <Compile Include="Infrastructure\Filters\FlatRegionFilter.cs" />
     <Compile Include="Infrastructure\Filters\HierarchyRegionFilter.cs" />
     <Compile Include="Infrastructure\Filters\SiteMapRegionFilter.cs" />
     <Compile Include="Infrastructure\Filters\RegionFilterFactory.cs" />
+    <Compile Include="IQpHelper.cs" />
     <Compile Include="IRegionRepository.cs" />
     <Compile Include="RegionRepository.cs" />
     <Compile Include="DictionaryRepository.cs" />
@@ -280,6 +287,13 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\Html\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="qa_extend_items.sql" />
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,5 @@
 using System;
 using System.Web;
-using QA.Configuration;
 using QA.Core;
 using QA.Core.Service.Interaction;
 using QA.Engine.Administration.Services;
@@ -14,6 +13,7 @@ namespace QA.Engine.Administration.WebApp.Configuration
         public string Name { get; set; }
 
         public string ConnectionName { get; set; }
+        public string ConnectionString { get; set; }
 
         public string SiteDescription { get; set; }
 
@@ -73,16 +73,15 @@ namespace QA.Engine.Administration.WebApp.Configuration
 
         public static string CurrentName => Current.Name;
 
-        public static SiteConfiguration Set(string name)
+        public static SiteConfiguration Set(string customerCode, string siteId)
         {
-            var service = ObjectFactoryBase.Resolve<IConfigurationService>();
-            var item = service.GetConfiguration<SiteConfiguration>(name);
+            var factory = ObjectFactoryBase.Resolve<ISiteConfiguratioFactory>();
+            var item = factory.Create(customerCode, int.Parse(siteId));
             if (item == null)
             {
-                Throws.Exception(string.Format(ErrorMessages.ErrorConfigurationMessage, name));
+                Throws.Exception(string.Format(ErrorMessages.ErrorConfigurationMessage, customerCode));
             }
 
-            item = service.GetConfiguration<SiteConfiguration>(name);
             if (HttpContext.Current == null)
             {
                 _current = item;

@@ -1,7 +1,7 @@
 var MvcJs = {
   Dictionary: {
     AjaxCultures: function() {
-      var url = "/Dictionary/AjaxCultures";
+      var url = "Dictionary/AjaxCultures";
 
       return url.replace(/([?&]+$)/g, "");
     },
@@ -17,12 +17,12 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxDiscriminatorConstraints: function() {
-      var url = "/Dictionary/AjaxDiscriminatorConstraints";
+      var url = "Dictionary/AjaxDiscriminatorConstraints";
 
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxKendoUIRegions: function(viewModel) {
-      var url = "/Dictionary/AjaxKendoUIRegions?viewModel={viewModel}";
+      var url = "Dictionary/AjaxKendoUIRegions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -33,7 +33,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRegions: function(viewModel) {
-      var url = "/Dictionary/AjaxRegions?viewModel={viewModel}";
+      var url = "Dictionary/AjaxRegions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -89,12 +89,12 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     Archive: function() {
-      var url = "/SiteMap/Archive";
+      var url = "SiteMap/Archive";
 
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxTree: function(filter) {
-      var url = "/SiteMap/AjaxTree?filter={filter}";
+      var url = "SiteMap/AjaxTree?filter={filter}";
 
       if (filter) {
         url = url.replace("{filter}", filter);
@@ -105,7 +105,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxArchiveTree: function(filter) {
-      var url = "/SiteMap/AjaxArchiveTree?filter={filter}";
+      var url = "SiteMap/AjaxArchiveTree?filter={filter}";
 
       if (filter) {
         url = url.replace("{filter}", filter);
@@ -116,7 +116,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxGetItem: function(viewModel) {
-      var url = "/SiteMap/AjaxGetItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxGetItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -127,7 +127,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxTreeMoveItem: function(viewModel) {
-      var url = "/SiteMap/AjaxTreeMoveItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxTreeMoveItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -138,17 +138,17 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     Filter: function() {
-      var url = "/SiteMap/Filter";
+      var url = "SiteMap/Filter";
 
       return url.replace(/([?&]+$)/g, "");
     },
     Toolbar: function() {
-      var url = "/SiteMap/Toolbar";
+      var url = "SiteMap/Toolbar";
 
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxTreeReorderItem: function(viewModel) {
-      var url = "/SiteMap/AjaxTreeReorderItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxTreeReorderItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -159,7 +159,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxPublishItem: function(viewModel) {
-      var url = "/SiteMap/AjaxPublishItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxPublishItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -170,7 +170,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxAdd: function(viewModel) {
-      var url = "/SiteMap/AjaxAdd?viewModel={viewModel}";
+      var url = "SiteMap/AjaxAdd?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -181,7 +181,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxEdit: function(viewModel) {
-      var url = "/SiteMap/AjaxEdit?viewModel={viewModel}";
+      var url = "SiteMap/AjaxEdit?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -192,7 +192,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxEditItem: function(viewModel) {
-      var url = "/SiteMap/AjaxEditItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxEditItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -203,12 +203,12 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxMove: function() {
-      var url = "/SiteMap/AjaxMove";
+      var url = "SiteMap/AjaxMove";
 
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxGetSiteMap: function(name, parentId) {
-      var url = "/SiteMap/AjaxGetSiteMap?name={name}&parentId={parentId}";
+      var url = "SiteMap/AjaxGetSiteMap?name={name}&parentId={parentId}";
 
       if (name) {
         url = url.replace("{name}", name);
@@ -225,7 +225,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxUpdateItemRegions: function(viewModel) {
-      var url = "/SiteMap/AjaxUpdateItemRegions?viewModel={viewModel}";
+      var url = "SiteMap/AjaxUpdateItemRegions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -236,7 +236,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxDeleteItemRegion: function(viewModel) {
-      var url = "/SiteMap/AjaxDeleteItemRegion?viewModel={viewModel}";
+      var url = "SiteMap/AjaxDeleteItemRegion?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -247,7 +247,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxItemRegionIds: function(viewModel) {
-      var url = "/SiteMap/AjaxItemRegionIds?viewModel={viewModel}";
+      var url = "SiteMap/AjaxItemRegionIds?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -258,7 +258,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxItemCultureIds: function(viewModel) {
-      var url = "/SiteMap/AjaxItemCultureIds?viewModel={viewModel}";
+      var url = "SiteMap/AjaxItemCultureIds?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -269,7 +269,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxCultures: function(viewModel) {
-      var url = "/SiteMap/AjaxCultures?viewModel={viewModel}";
+      var url = "SiteMap/AjaxCultures?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -280,7 +280,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRemove: function(viewModel) {
-      var url = "/SiteMap/AjaxRemove?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRemove?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -291,7 +291,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRemoveItem: function(viewModel) {
-      var url = "/SiteMap/AjaxRemoveItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRemoveItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -302,7 +302,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxDelete: function(viewModel) {
-      var url = "/SiteMap/AjaxDelete?viewModel={viewModel}";
+      var url = "SiteMap/AjaxDelete?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -313,7 +313,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxDeleteItem: function(viewModel) {
-      var url = "/SiteMap/AjaxDeleteItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxDeleteItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -324,7 +324,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRemoveContentVersion: function(viewModel) {
-      var url = "/SiteMap/AjaxRemoveContentVersion?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRemoveContentVersion?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -335,7 +335,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRestore: function(viewModel) {
-      var url = "/SiteMap/AjaxRestore?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRestore?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -346,7 +346,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRestoreItem: function(viewModel) {
-      var url = "/SiteMap/AjaxRestoreItem?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRestoreItem?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -357,7 +357,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     Info: function(viewModel) {
-      var url = "/SiteMap/Info?viewModel={viewModel}";
+      var url = "SiteMap/Info?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -368,7 +368,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     ArchiveInfo: function(viewModel) {
-      var url = "/SiteMap/ArchiveInfo?viewModel={viewModel}";
+      var url = "SiteMap/ArchiveInfo?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -379,7 +379,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     Regions: function(viewModel) {
-      var url = "/SiteMap/Regions?viewModel={viewModel}";
+      var url = "SiteMap/Regions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -390,7 +390,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRegionsGroups: function(viewModel) {
-      var url = "/SiteMap/AjaxRegionsGroups?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRegionsGroups?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -401,7 +401,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxRegions: function(viewModel) {
-      var url = "/SiteMap/AjaxRegions?viewModel={viewModel}";
+      var url = "SiteMap/AjaxRegions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -412,7 +412,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxContentVersionsRegions: function(viewModel) {
-      var url = "/SiteMap/AjaxContentVersionsRegions?viewModel={viewModel}";
+      var url = "SiteMap/AjaxContentVersionsRegions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -423,7 +423,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     Widgets: function(viewModel) {
-      var url = "/SiteMap/Widgets?viewModel={viewModel}";
+      var url = "SiteMap/Widgets?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -434,7 +434,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxWidgets: function(viewModel) {
-      var url = "/SiteMap/AjaxWidgets?viewModel={viewModel}";
+      var url = "SiteMap/AjaxWidgets?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -445,7 +445,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxPublishWidgetsByAbstractItem: function(id) {
-      var url = "/SiteMap/AjaxPublishWidgetsByAbstractItem/{id}";
+      var url = "SiteMap/AjaxPublishWidgetsByAbstractItem/{id}";
 
       if (id) {
         url = url.replace("{id}", id);
@@ -456,7 +456,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxPublishWidgets: function(id) {
-      var url = "/SiteMap/AjaxPublishWidgets/{id}";
+      var url = "SiteMap/AjaxPublishWidgets/{id}";
 
       if (id) {
         url = url.replace("{id}", id);
@@ -467,7 +467,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     ContentVersions: function(viewModel) {
-      var url = "/SiteMap/ContentVersions?viewModel={viewModel}";
+      var url = "SiteMap/ContentVersions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);
@@ -478,7 +478,7 @@ var MvcJs = {
       return url.replace(/([?&]+$)/g, "");
     },
     AjaxContentVersions: function(viewModel) {
-      var url = "/SiteMap/AjaxContentVersions?viewModel={viewModel}";
+      var url = "SiteMap/AjaxContentVersions?viewModel={viewModel}";
 
       if (viewModel) {
         url = url.replace("{viewModel}", viewModel);

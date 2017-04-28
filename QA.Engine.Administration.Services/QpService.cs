@@ -20,9 +20,9 @@ namespace QA.Engine.Administration.Services
         {
             return RunEnumeration(userContext, null, () =>
               {
-                  var siteName = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString).GetSiteName(CurrentServiceToken.SiteId);
+                  var siteName = new QPMetadataManager(CurrentServiceToken.ConnectionName).GetSiteName(CurrentServiceToken.SiteId);
                   var result = Resolve<QPContentManager>()
-                      .Connection(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString)
+                      .Connection(CurrentServiceToken.ConnectionName)
                       .SiteName(siteName)
                       .ContentName("CONTENT")
                       .Fields("CONTENT_ID, CONTENT_NAME, NET_CONTENT_NAME")
@@ -31,7 +31,7 @@ namespace QA.Engine.Administration.Services
 
                   var contents = MappingHelper.Map<DataRowCollection, List<QpContentDto>>(result.PrimaryContent.Rows);
                   var fields = Resolve<QPContentManager>()
-                      .Connection(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString)
+                      .Connection(CurrentServiceToken.ConnectionName)
                       .SiteName(siteName)
                       .ContentName("CONTENT_ATTRIBUTE")
                       .Fields("ATTRIBUTE_ID, CONTENT_ID, ATTRIBUTE_NAME, NET_ATTRIBUTE_NAME")
@@ -55,9 +55,9 @@ namespace QA.Engine.Administration.Services
         {
             return Run2(userContext, null, () =>
               {
-                  var siteName = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString).GetSiteName(CurrentServiceToken.SiteId);
+                  var siteName = new QPMetadataManager(CurrentServiceToken.ConnectionName).GetSiteName(CurrentServiceToken.SiteId);
                   var result = Resolve<QPContentManager>()
-                      .Connection(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString)
+                      .Connection(CurrentServiceToken.ConnectionName)
                       .SiteName(siteName)
                       .ContentName("BACKEND_ACTION")
                       .Fields("ID, NAME, CODE")

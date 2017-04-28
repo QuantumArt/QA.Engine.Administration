@@ -317,7 +317,7 @@ namespace QA.Engine.Administration.Services
                 var item = repository.GetById(itemId);
                 if (item.ExtensionId != null)
                 {
-                    var manager = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString);
+                    var manager = new QPMetadataManager(CurrentServiceToken.ConnectionName);
                     var siteName = manager.GetSiteName(CurrentServiceToken.SiteId);
                     var contentName = manager.GetContentName(item.ExtensionId.Value);
                     Resolve<QPContentManager>()
@@ -366,7 +366,7 @@ namespace QA.Engine.Administration.Services
                     var item = repository.GetById(id);
                     if (item.ExtensionId != null)
                     {
-                        var manager = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString);
+                        var manager = new QPMetadataManager(CurrentServiceToken.ConnectionName);
                         var siteName = manager.GetSiteName(CurrentServiceToken.SiteId);
                         var contentName = manager.GetContentName(item.ExtensionId.Value);
                         Resolve<QPContentManager>()
@@ -427,7 +427,7 @@ namespace QA.Engine.Administration.Services
 
                 try
                 {
-                    var manager = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString);
+                    var manager = new QPMetadataManager(CurrentServiceToken.ConnectionName);
                     var siteName = manager.GetSiteName(CurrentServiceToken.SiteId);
 
                     Action<QPAbstractItem> ext = i =>
@@ -558,7 +558,7 @@ namespace QA.Engine.Administration.Services
 
                 try
                 {
-                    var manager = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString);
+                    var manager = new QPMetadataManager(CurrentServiceToken.ConnectionName);
                     var siteName = manager.GetSiteName(CurrentServiceToken.SiteId);
                     var repository = Resolve<ISiteMapRepository>(UnitOfWorkNames.QpArchive.GetDescription());
 
@@ -649,7 +649,7 @@ namespace QA.Engine.Administration.Services
 
                 try
                 {
-                    var manager = new QPMetadataManager(ConfigurationManager.ConnectionStrings[CurrentServiceToken.ConnectionName].ConnectionString);
+                    var manager = new QPMetadataManager(CurrentServiceToken.ConnectionName);
                     var siteName = manager.GetSiteName(CurrentServiceToken.SiteId);
 
                     Action<QPAbstractItem> ext = i =>
