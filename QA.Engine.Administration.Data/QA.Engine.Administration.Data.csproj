@@ -135,7 +135,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Data, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Data.3.0.4-alpha2\lib\net45\QA.Core.Data.dll</HintPath>
+      <HintPath>..\packages\QA.Core.Data.3.0.4\lib\net45\QA.Core.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Engine, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -147,7 +147,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Engine.QPData, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.4-alpha2\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
+      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.4\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Service.Interaction, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -290,6 +290,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\Html\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="qa_extend_items.sql" />
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
