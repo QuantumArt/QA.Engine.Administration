@@ -21,7 +21,7 @@ namespace QA.Engine.Administration.WebApp.Controllers
         [HttpPost, NoCache, AjaxOnly]
         public virtual ActionResult AjaxSetSite(SetCurrentSiteViewModel viewModel)
         {
-            SiteConfiguration.Set(viewModel.Name);
+            SiteConfiguration.Set(viewModel.Name, viewModel.SiteId);
             return Json(null);
         }
 

@@ -15,7 +15,7 @@
     <AssemblyName>QA.Engine.Administration.WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -84,6 +84,10 @@
       <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -112,36 +116,37 @@
       <HintPath>..\packages\QA.Core.3.0.4.0\lib\net45\QA.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Data, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Data.3.0.2.0\lib\net45\QA.Core.Data.dll</HintPath>
+    <Reference Include="QA.Core.Data, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Data.3.0.4-alpha2\lib\net45\QA.Core.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Engine, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Engine.2.1.1.0\lib\net45\QA.Core.Engine.dll</HintPath>
+    <Reference Include="QA.Core.Engine, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Engine.2.1.2\lib\net45\QA.Core.Engine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Engine.QPData, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.1.0\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
+    <Reference Include="QA.Core.Engine.QPData, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Engine.QPData.2.1.4-alpha2\lib\net45\QA.Core.Engine.QPData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QA.Core.Service.Interaction, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QA.Core.Service.Interaction.3.0.2.0\lib\net45\QA.Core.Service.Interaction.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QA.Core.Web, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QA.Core.Web.3.0.3.0\lib\net45\QA.Core.Web.dll</HintPath>
+    <Reference Include="QA.Core.Web, Version=3.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QA.Core.Web.3.0.5-alpha\lib\net45\QA.Core.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Quantumart, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Quantumart.2.0.4.0\lib\net45\Quantumart.dll</HintPath>
+    <Reference Include="Quantumart, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Quantumart.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Quantumart.QP8.Assembling, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Quantumart.2.0.4.0\lib\net45\Quantumart.QP8.Assembling.dll</HintPath>
+    <Reference Include="Quantumart.QP8.Assembling, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quantumart.2.1.0\lib\net45\Quantumart.QP8.Assembling.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -223,6 +228,7 @@
     <Compile Include="AppCode\ClientUtils.cs" />
     <Compile Include="AppCode\ContentVersionOperations.cs" />
     <Compile Include="AppCode\AdministrationSecurityChecker.cs" />
+    <Compile Include="AppCode\WebAppQpHelper.cs" />
     <Compile Include="AppCode\QpActionAttribute.cs" />
     <Compile Include="AppCode\T4EntityCode.cs">
       <DependentUpon>T4EntityCode.tt</DependentUpon>
@@ -307,8 +313,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
+    <Compile Include="Configuration\QPSiteConfiguratioFactory.cs" />
+    <Compile Include="Configuration\ConfigurationServiceSiteConfiguratioFactory.cs" />
+    <Compile Include="AppCode\MappingResolver.cs" />
     <Compile Include="Configuration\SerializableAppSettings.cs" />
     <Compile Include="Configuration\SerializableSiteConfiguration.cs" />
+    <Compile Include="Configuration\ISiteConfiguratioFactory.cs" />
     <Compile Include="Configuration\SiteConfiguration.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -671,7 +681,6 @@
     <Content Include="Scripts\pages\sitemap\sitemap.splitter.js" />
     <Content Include="Scripts\pages\sitemap\sitemap.tabs.js" />
     <Content Include="Scripts\pages\sitemap\sitemap.toolbar.js" />
-    <Content Include="Connections.config" />
     <Content Include="T4MVC.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
@@ -1195,12 +1204,18 @@
     <Content Include="Views\SiteMap\ArchiveInfo.cshtml" />
     <Content Include="Views\SiteMap\AjaxDelete.cshtml" />
     <Content Include="Views\SiteMap\AjaxRestore.cshtml" />
-    <Content Include="Unity.config" />
+    <Content Include="Unity.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QA.Engine.Administration.Data\QA.Engine.Administration.Data.csproj">
+      <Project>{9bf4edfd-d756-45b8-9b1c-012c7678d59a}</Project>
+      <Name>QA.Engine.Administration.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QA.Engine.Administration.Dto\QA.Engine.Administration.Dto.csproj">
       <Project>{b3a950b3-f2ca-43f6-8373-05bacb5435ff}</Project>
       <Name>QA.Engine.Administration.Dto</Name>
@@ -1232,12 +1247,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConfigurationStorage.xaml">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Extensions\Html\Resources\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1257,7 +1268,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>33168</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2048/</IISUrl>
+          <IISUrl>http://localhost:2020/sitemap</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

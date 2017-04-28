@@ -10,7 +10,8 @@ namespace QA.Engine.Administration.WebApp.AppCode
     {
         public static T Resolve<T>()
         {
-            return ObjectFactoryBase.ResolveByName<T>(SiteConfiguration.Current.ContainerName);
+            //return ObjectFactoryBase.ResolveByName<T>(SiteConfiguration.Current.ContainerName);
+            return ObjectFactoryBase.Resolve<T>();
         }
 
         public static void SetServiceToken()
@@ -20,7 +21,7 @@ namespace QA.Engine.Administration.WebApp.AppCode
             {
                 DependencyContainerName = token.ContainerName,
                 SiteId = token.SiteId,
-                ConnectionName = token.ConnectionName
+                ConnectionName = token.ConnectionString
             };
 
             HttpContext.Current.Items[ServiceToken.ServiceTokenKey] = serviceToken;

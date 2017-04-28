@@ -302,7 +302,7 @@ delete-confirm {
 }
 
 .button-refresh {
-  background-image: url(/content/img/arrow_refresh.png); /* 16px x 16px */
+  background-image: url(img/arrow_refresh.png); /* 16px x 16px */
   background-color: transparent; /* make the button transparent */
   background-repeat: no-repeat; /* make the background image appear only once */
   background-position: 0px 0px; /* equivalent to 'top left' */
@@ -331,7 +331,7 @@ delete-confirm {
 }
 
 .new {
-  background: url(/content/img/new.png) no-repeat 0px -2px;
+  background: url(img/new.png) no-repeat 0px -2px;
   padding: 1px 1px 0 15px;
   position: absolute;
   left: 7px;
