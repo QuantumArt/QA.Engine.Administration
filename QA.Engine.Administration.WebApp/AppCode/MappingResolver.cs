@@ -31,21 +31,25 @@ namespace QA.Engine.Administration.WebApp.AppCode
 
         readonly ICacheProvider _cacheProvider;
 
-        public MappingResolver(IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider)
+        readonly bool _writeMappings;
+
+        public MappingResolver(IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider, bool writeMappings)
         {
             _isUnited = isUnited;
             _qpHelper = qpHelper;
             _cacheProvider = cacheProvider;
+            _writeMappings = writeMappings;
+        }
+
+        public MappingResolver(IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider) : this(qpHelper, isUnited, cacheProvider, false)
+        {
         }
 
         /// <summary>
         /// Получить маппинг с учетом режима доступа к данным live/stage
         /// </summary>
-        /// <param name="isStage"></param>
-        /// <returns></returns>
         public override XmlMappingSource GetCurrentMapping()
         {
-            
             return GetMapping(IsStageMode);
         }
 
@@ -57,7 +61,12 @@ namespace QA.Engine.Administration.WebApp.AppCode
 
         string GetKey(bool isStage)
         {
-            return $"MappingResolver.GetMapping?isUnited=${_isUnited}&isStage=${isStage}&siteId=${_qpHelper.SiteId}&connectionString=${_qpHelper.ConnectionString}";
+            return $"MappingResolver.GetMapping?isUnited={_isUnited}&isStage={isStage}&siteId={_qpHelper.SiteId}";
+        }
+
+        string GetMappingFileName(bool isStage)
+        {
+            return $"siteId={_qpHelper.SiteId}isUnited={_isUnited}isStage={isStage}.xml";
         }
 
 
@@ -85,6 +94,12 @@ namespace QA.Engine.Administration.WebApp.AppCode
 
                 _cacheProvider.Invalidate(key);
                 _cacheProvider.Set(key, mappingWithMd5, TimeSpan.FromDays(366));
+
+                if (_writeMappings)
+                {
+                    var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", GetMappingFileName(isStage));
+                    File.WriteAllText(path, mappingStrWithMd5.Value);
+                }
             }
 
             return mappingWithMd5.Value;
