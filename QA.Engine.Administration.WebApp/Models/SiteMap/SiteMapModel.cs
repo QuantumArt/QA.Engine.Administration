@@ -466,7 +466,7 @@ namespace QA.Engine.Administration.WebApp.Models.SiteMap
                 return Error<ViewModelBase>(ErrorMessages.InternalErrorMessage);
             }
 
-            var result = service.ReorderItem(UserContext, viewModel.ItemId, viewModel.RelatedItemId, viewModel.IsInsertBefore, useHierarchyRegionsFilter);
+            var result = service.ReorderItem(UserContext, viewModel.ItemId, viewModel.RelatedItemId, viewModel.IsInsertBefore, useHierarchyRegionsFilter, AppSettings.ReorderItemStep);
             if (result == null)
             {
                 return Error<ViewModelBase>(ErrorMessages.InternalErrorMessage);

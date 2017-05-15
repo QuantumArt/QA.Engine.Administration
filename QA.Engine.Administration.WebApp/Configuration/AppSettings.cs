@@ -45,6 +45,16 @@ namespace QA.Engine.Administration.WebApp.Configuration
             }
         }
 
+        public static int ReorderItemStep
+        {
+            get
+            {
+                int result = 1;
+                int.TryParse(ConfigurationManager.AppSettings["ReorderItemStep"], out result);
+                return result != 0 ? result : 10 ;
+            }
+        }
+
         public static string ItemPreviewUrlSuffix => ConfigurationManager.AppSettings["ItemPreview.UrlSuffix"];
 
         public static string ItemPreviewItemIdParamName => ConfigurationManager.AppSettings["ItemPreview.ItemIdParamName"];

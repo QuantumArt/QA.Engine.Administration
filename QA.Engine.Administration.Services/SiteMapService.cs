@@ -279,7 +279,7 @@ namespace QA.Engine.Administration.Services
             });
         }
 
-        public virtual ServiceResult<object> ReorderItem(UserContext userContext, int itemId, int relatedItemId, bool isInsertBefore, bool useHierarchyRegionsFilter)
+        public virtual ServiceResult<object> ReorderItem(UserContext userContext, int itemId, int relatedItemId, bool isInsertBefore, bool useHierarchyRegionsFilter, int step)
         {
             return Run2(userContext, null, () =>
             {
@@ -296,7 +296,7 @@ namespace QA.Engine.Administration.Services
                 {
                     var i1 = i;
                     var listItem = list.SingleOrDefault(w => w.Id == result[i1].Id);
-                    listItem.IndexOrder = i;
+                    listItem.IndexOrder = i*step;
                 }
 
                 Commit(UnitOfWorkNames.Qp.GetDescription());

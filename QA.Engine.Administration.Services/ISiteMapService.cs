@@ -75,8 +75,9 @@ namespace QA.Engine.Administration.Services
         /// <param name="relatedItemId">Элемент, относительно которого меняется позиция</param>
         /// <param name="isInsertBefore">Признак вставки до или после элемента relatedItemId. True - вставка до, False - после</param>
         /// <param name="useHierarchyRegionsFilter">Использовать иерархический фильтр по регионам</param>
+        /// <param name="step">Шаг изменения позиции</param>
         [OperationContract]
-        ServiceResult<object> ReorderItem(UserContext userContext, int itemId, int relatedItemId, bool isInsertBefore, bool useHierarchyRegionsFilter);
+        ServiceResult<object> ReorderItem(UserContext userContext, int itemId, int relatedItemId, bool isInsertBefore, bool useHierarchyRegionsFilter, int step);
 
         /// <summary>
         /// Публикует раздел
