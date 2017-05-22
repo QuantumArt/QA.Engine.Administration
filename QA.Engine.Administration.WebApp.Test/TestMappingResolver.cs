@@ -1,6 +1,7 @@
 ﻿using QA.Engine.Administration.WebApp.AppCode;
 using QA.Engine.Administration.Data;
 using QA.Core;
+using System;
 
 namespace QA.Engine.Administration.WebApp.Test
 {
@@ -26,9 +27,20 @@ namespace QA.Engine.Administration.WebApp.Test
             return this.GetKeyStr(isStage);
         }
 
-        protected override string GetMappingStr(int siteId, bool isStage)
+        protected override string GetMappingStr(bool isStage)
         {
             return _mappingStr;
+        }
+
+        protected override DateTime? GetActualMappingUpdateTime()
+        {
+            return null;
+        }
+
+
+        public string GetMappingFileNamePublic(bool isStage)
+        {
+            return GetMappingFileName(isStage);
         }
     }
 }
