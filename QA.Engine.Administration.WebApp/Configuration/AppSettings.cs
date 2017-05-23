@@ -4,6 +4,19 @@ namespace QA.Engine.Administration.WebApp.Configuration
 {
     public class AppSettings
     {
+
+        static int GetInt(string key, int? defaultValue = null)
+        {
+            var val = ConfigurationManager.AppSettings[key];
+            int result;
+            if (int.TryParse(val, out result))
+            {
+                return result;
+            }
+
+            return defaultValue ?? result;
+        }
+
         public static bool IsViewSiteList
         {
             get
@@ -14,36 +27,11 @@ namespace QA.Engine.Administration.WebApp.Configuration
             }
         }
 
-        public static int DefaultPageSize
-        {
-            get
-            {
-                int result;
-                int.TryParse(ConfigurationManager.AppSettings["SiteConfiguration.DefaultPageSize"], out result);
-                return result;
-            }
-        }
+        public static int DefaultPageSize => GetInt("SiteConfiguration.DefaultPageSize");
 
-        public static int RegionStringLetterCount
-        {
-            get
-            {
-                int result;
-                int.TryParse(ConfigurationManager.AppSettings["SiteConfiguration.RegionStringLetterCount"], out result);
-                return result;
-            }
-        }
+        public static int RegionStringLetterCount => GetInt("SiteConfiguration.RegionStringLetterCount");
 
-        public static int ItemPreviewCustomActionId
-        {
-            get
-            {
-                var val = ConfigurationManager.AppSettings["ItemPreview.CustomActionId"];
-                int result;
-                int.TryParse(val, out result);
-                return result;
-            }
-        }
+        public static int ItemPreviewCustomActionId => GetInt("ItemPreview.CustomActionId");
 
         public static string ItemPreviewUrlSuffix => ConfigurationManager.AppSettings["ItemPreview.UrlSuffix"];
 
@@ -52,5 +40,16 @@ namespace QA.Engine.Administration.WebApp.Configuration
         public static string ItemPreviewChosenRegionParamName => ConfigurationManager.AppSettings["ItemPreview.ChosenRegionParamName"];
 
         public static string ItemPreviewChosenCultureParamName => ConfigurationManager.AppSettings["ItemPreview.ChosenCultureParamName"];
+
+
+
+        /// <summary>
+        /// Проверять обновление маппингов, не чаще чем значение CheckMappingUpdatePeriodicity (сек)
+        /// </summary>
+        public static int CheckMappingUpdatePeriodicity => GetInt("CheckMappingUpdatePeriodicity", 300);
+
+        public static int MappingCacheTime => GetInt("MappingCacheTime", 300);
+
+        
     }
 }

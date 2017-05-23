@@ -7,8 +7,6 @@ namespace QA.Engine.Administration.WebApp.Test.AppCode
     [TestClass]
     public class MappingResolverTest
     {
-
-
         string GetMappingStr(bool isStage)
         {
             if (isStage)
@@ -16,6 +14,24 @@ namespace QA.Engine.Administration.WebApp.Test.AppCode
                 return File.ReadAllText(TestMappingResolver.qpContextStageMap);
             }
             return File.ReadAllText(TestMappingResolver.qpContextLiveMap);
+        }
+
+        void RemoveFileIfExist(string path)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+
+        TestMappingResolver _resolver;
+        bool _isStage;
+
+        TestMappingResolver GetResolver(QpHelper qpHelper, bool isUnited, CacheProvider cache, bool isStage)
+        {
+            _resolver = new TestMappingResolver(qpHelper, isUnited, cache);
+            _isStage = isStage;
+            return _resolver;
         }
         
 
@@ -29,7 +45,7 @@ namespace QA.Engine.Administration.WebApp.Test.AppCode
             qpHelper.ConnectionString = "testConnectionString";
             CacheProvider cache = new CacheProvider();
 
-            TestMappingResolver resolver = new TestMappingResolver(qpHelper, isUnited, cache);
+            TestMappingResolver resolver = GetResolver(qpHelper, isUnited, cache, isStage);
             var mappingStr = GetMappingStr(isStage);
             resolver.SetMappingStr(mappingStr);
 
@@ -41,13 +57,32 @@ namespace QA.Engine.Administration.WebApp.Test.AppCode
             cache.Invalidate(strKey);
             resolver.SetMappingStr(mappingStr + "   ");
 
+            var mappingFromFileCache = resolver.GetMapping(isStage);
+
+
+            cache.Invalidate(strKey);
+            var path = resolver.GetMappingFileNamePublic(isStage);
+            RemoveFileIfExist(path);
+
             var newMapping = resolver.GetMapping(isStage);
 
             Assert.AreEqual(mapping, mappingFromCache);
-
+            Assert.AreEqual(mapping, mappingFromFileCache);
             Assert.AreNotEqual(mapping, newMapping);
 
         }
+
+
+        [TestCleanup()]
+        public void Cleanup()
+        {
+            if (_resolver != null)
+            {
+                var path = _resolver.GetMappingFileNamePublic(_isStage);
+                RemoveFileIfExist(path); RemoveFileIfExist(path);
+            }
+        }
+
 
     }
 }
