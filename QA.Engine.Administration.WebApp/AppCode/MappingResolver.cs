@@ -40,21 +40,25 @@ namespace QA.Engine.Administration.WebApp.AppCode
 
         readonly string _connectionString;
         readonly string _siteId;
+        readonly string _customerCode;
         readonly int _siteIdInt;
 
+        readonly ILogger _logger;
 
-        public MappingResolver(IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider, bool writeMappings)
+        public MappingResolver(ILogger logger, IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider, bool writeMappings)
         {
             _isUnited = isUnited;
             _siteId = qpHelper.SiteId;
             _siteIdInt = int.Parse(qpHelper.SiteId);
+            _customerCode = qpHelper.CustomerCode;
 
             _connectionString = qpHelper.ConnectionString;
             _cacheProvider = cacheProvider;
             _writeMappings = writeMappings;
+            _logger = logger;
         }
 
-        public MappingResolver(IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider) : this(qpHelper, isUnited, cacheProvider, false)
+        public MappingResolver(ILogger logger, IQpHelper qpHelper, bool isUnited, ICacheProvider cacheProvider) : this(logger, qpHelper, isUnited, cacheProvider, false)
         {
         }
 
@@ -80,14 +84,20 @@ namespace QA.Engine.Administration.WebApp.AppCode
             return value;
         }
 
+
+        string GetKeyString(bool isStage)
+        {
+            return $"customerCode={_customerCode}_siteId={_siteId}_isUnited={_isUnited}_isStage={isStage}";
+        }
+
         string GetKey(bool isStage)
         {
-            return $"MappingResolver.GetMapping?isUnited={_isUnited}&isStage={isStage}&siteId={_siteId}";
+            return $"MappingResolver.GetMapping?{GetKeyString(isStage)}";
         }
 
         protected string GetMappingFileName(bool isStage)
         {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", $"siteId={_siteId}_isUnited={_isUnited}_isStage={isStage}.xml");
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", $"{GetKeyString(isStage)}.xml");
         }
 
 
@@ -232,9 +242,21 @@ from (
                 mappingStr = mappingStr.Replace(strForReplace, "_UNITED");
             }
             var result = new ValueWtihMD5<string>(mappingStr, GetMd5Hash(mappingStr));
-
-            File.WriteAllText(GetMappingFileName(isStage), mappingStr);
+            
+            TryWriteFile(GetMappingFileName(isStage), mappingStr);
             return result;
+        }
+
+        void TryWriteFile(string path, string text)
+        {
+            try
+            {
+                File.WriteAllText(path, text);
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                _logger.Log(() => e.ToString(), EventLevel.Warning);
+            }
         }
 
         ValueWtihMD5<string> GetMappingStrFromFile(bool isStage)
