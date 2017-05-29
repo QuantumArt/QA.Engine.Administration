@@ -95,9 +95,11 @@ namespace QA.Engine.Administration.WebApp.AppCode
             return $"MappingResolver.GetMapping?{GetKeyString(isStage)}";
         }
 
+        static string MappingDir => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data");
+
         protected string GetMappingFileName(bool isStage)
         {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", $"{GetKeyString(isStage)}.xml");
+            return Path.Combine(MappingDir, $"{GetKeyString(isStage)}.xml");
         }
 
 
@@ -251,6 +253,7 @@ from (
         {
             try
             {
+                Directory.CreateDirectory(MappingDir);
                 File.WriteAllText(path, text);
             }
             catch (UnauthorizedAccessException e)
