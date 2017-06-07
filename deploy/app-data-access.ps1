@@ -1,6 +1,5 @@
 ﻿param(
-[string] $name = "qp",
-[string] $root = "D:\tfs\git\QA.Engine.Administration\QA.Engine.Administration.WebApp"
+[string] $siteName = "qp"
 )
 
 
@@ -12,12 +11,22 @@ If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     Break
 }
 
+try {
+  $s = Get-Item "IIS:\sites\$siteName" -ErrorAction SilentlyContinue
+  
+} catch {
+  # http://help.octopusdeploy.com/discussions/problems/5172-error-using-get-website-in-predeploy-because-of-filenotfoundexception
+  $s = Get-Item "IIS:\sites\$siteName" -ErrorAction SilentlyContinue
+}
 
-function Give-Access ([String] $name, [String] $path, [String] $permission)
+if (!$s) { throw "Site (or application) $siteName not found"}
+
+
+function Give-Access ([String] $siteName, [String] $path, [String] $permission)
 {
-    Write-Host "Giving '$name' '$permission' permissions to '$path'"
+    Write-Host "Giving '$siteName' '$permission' permissions to '$path'"
 
-    $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("$name", "$permission", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
+    $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("$siteName", "$permission", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
     $Acl = (Get-Item $path).GetAccessControl('Access')
     $Acl.SetAccessRule($Ar)
     Set-Acl -path $path -AclObject $Acl
@@ -25,8 +34,8 @@ function Give-Access ([String] $name, [String] $path, [String] $permission)
     Write-Host "Done"
 }
 
-$appData = Join-Path $root "App_Data";
+$appDataPath = Join-Path $s.PhysicalPath "App_Data";
 
 
-New-Item -ItemType Directory -Force -Path $appData
-Give-Access "IIS AppPool\$name" $appData 'Modify'
+New-Item -ItemType Directory -Force -Path $appDataPath
+Give-Access "IIS AppPool\$siteName" $appDataPath 'Modify'
