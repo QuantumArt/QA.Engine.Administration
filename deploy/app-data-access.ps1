@@ -2,7 +2,6 @@
 [string] $siteName = "qp"
 )
 
-
 # restart as admin
 If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
 {   
@@ -11,14 +10,7 @@ If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     Break
 }
 
-try {
-  $s = Get-Item "IIS:\sites\$siteName" -ErrorAction SilentlyContinue
-  
-} catch {
-  # http://help.octopusdeploy.com/discussions/problems/5172-error-using-get-website-in-predeploy-because-of-filenotfoundexception
-  $s = Get-Item "IIS:\sites\$siteName" -ErrorAction SilentlyContinue
-}
-
+$s = (Get-Website -Name "$siteName")
 if (!$s) { throw "Site (or application) $siteName not found"}
 
 
