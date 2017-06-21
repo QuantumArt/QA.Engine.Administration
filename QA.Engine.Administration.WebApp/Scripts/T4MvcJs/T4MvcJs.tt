@@ -178,6 +178,7 @@ void RenderActionMethods(ControllerInfo controller, ref bool firstElement) {
     PushIndent("\t");
     WriteLine("var url = \""+url+"\";");
     WriteLine(outputConditionals);
+    WriteLine("url = url.replace(/^\\//, \"\");");
     WriteLine("return url.replace(/([?&]+$)/g, \"\");");
     PopIndent();
     Write("}");
