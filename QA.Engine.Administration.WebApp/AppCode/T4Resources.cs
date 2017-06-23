@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 using System.Globalization;
 using System.Collections.Generic;
@@ -98,7 +98,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public CommonStrings()
 					{
 													_strings.Add("AllName_en-us", "all");
@@ -119,7 +119,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("WidgetItemName", "Виджет");
 											}
 
-
+					
 											    /// <summary>
 							/// all
 							/// </summary>
@@ -304,7 +304,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ConfirmStrings()
 					{
 													_strings.Add("Message_en-us", "Are you sure? Continue?");
@@ -317,7 +317,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("YesButtonText", "Да");
 											}
 
-
+					
 											    /// <summary>
 							/// Are you sure? Continue?
 							/// </summary>
@@ -414,7 +414,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public EnumStrings()
 					{
 													_strings.Add("ContentVersionOperations_Delete_en-us", "Remove content versions");
@@ -427,7 +427,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("VersionTypes_Structural", "Структурная");
 											}
 
-
+					
 											    /// <summary>
 							/// Remove content versions
 							/// </summary>
@@ -524,7 +524,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ErrorMessages()
 					{
 													_strings.Add("ErrorConfigurationMessage_en-us", "Invalid configuration file or the configuration is not found (name = {0}).");
@@ -541,7 +541,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("UnknowErrorMessage", "Неизвестная ошибка.");
 											}
 
-
+					
 											    /// <summary>
 							/// Invalid configuration file or the configuration is not found (name = {0}).
 							/// </summary>
@@ -682,7 +682,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ValidationStrings()
 					{
 													_strings.Add("MinErrorMessage_en-us", "Value must be specified");
@@ -695,7 +695,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RequiredIfErrorMessage", "Необходимо указать значение");
 											}
 
-
+					
 											    /// <summary>
 							/// Value must be specified
 							/// </summary>
@@ -792,7 +792,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ViewModelStrings()
 					{
 													_strings.Add("AddSiteMapViewModel_Culture_en-us", "Culture");
@@ -845,7 +845,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("VersionType_Title", "Тип версии");
 											}
 
-
+					
 											    /// <summary>
 							/// Culture
 							/// </summary>
@@ -1441,7 +1441,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Actions()
 					{
 													_strings.Add("AlsoText_en-us", "Also you can:");
@@ -1456,7 +1456,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("GoToText", "Перейти");
 											}
 
-
+					
 											    /// <summary>
 							/// Also you can:
 							/// </summary>
@@ -1575,7 +1575,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Error()
 					{
 													_strings.Add("Text1_en-us", "Sorry, an error occurred on the server, we have all the forces working to resolve.");
@@ -1586,7 +1586,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("Title", "На сервере возникла ошибка");
 											}
 
-
+					
 											    /// <summary>
 							/// Sorry, an error occurred on the server, we have all the forces working to resolve.
 							/// </summary>
@@ -1661,14 +1661,14 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Menu()
 					{
 													_strings.Add("IndexMenuItemTitle_en-us", "Management site map");
 													_strings.Add("IndexMenuItemTitle", "Управление структурой");
 											}
 
-
+					
 											    /// <summary>
 							/// Management site map
 							/// </summary>
@@ -1699,14 +1699,14 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public NoData()
 					{
 													_strings.Add("NoDataMessage_en-us", "No data for display.");
 													_strings.Add("NoDataMessage", "Нет данных для отображения.");
 											}
 
-
+					
 											    /// <summary>
 							/// No data for display.
 							/// </summary>
@@ -1939,7 +1939,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxAdd()
 					{
 													_strings.Add("AddButton_en-us", "Add");
@@ -1952,7 +1952,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Add
 							/// </summary>
@@ -2049,7 +2049,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxDelete()
 					{
 													_strings.Add("CancelButton_en-us", "Cancel");
@@ -2062,7 +2062,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Cancel
 							/// </summary>
@@ -2159,7 +2159,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxEdit()
 					{
 													_strings.Add("CancelEditButton_en-us", "Cancel");
@@ -2170,7 +2170,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("EditWindowTitle", "Редактирование раздела");
 											}
 
-
+					
 											    /// <summary>
 							/// Cancel
 							/// </summary>
@@ -2245,7 +2245,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxMove()
 					{
 													_strings.Add("CancelButton_en-us", "Cancel");
@@ -2260,7 +2260,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("NoAskMore", "Больше не спрашивать (в текущей сессии)");
 											}
 
-
+					
 											    /// <summary>
 							/// Cancel
 							/// </summary>
@@ -2305,7 +2305,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 								}
 								set {}
 							}
-                            /// <summary>
+												    /// <summary>
 							/// Move
 							/// </summary>
 							[DataMember]
@@ -2379,7 +2379,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxRemove()
 					{
 													_strings.Add("CancelButton_en-us", "Cancel");
@@ -2392,7 +2392,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Cancel
 							/// </summary>
@@ -2489,7 +2489,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public AjaxRestore()
 					{
 													_strings.Add("CancelButton_en-us", "Cancel");
@@ -2500,7 +2500,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RestoreWindowTitle", "Восстановить раздел");
 											}
 
-
+					
 											    /// <summary>
 							/// Cancel
 							/// </summary>
@@ -2575,7 +2575,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Archive()
 					{
 													_strings.Add("CommonTabTitle_en-us", "Common");
@@ -2590,7 +2590,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RestoreItem", "Восстановить");
 											}
 
-
+					
 											    /// <summary>
 							/// Common
 							/// </summary>
@@ -2709,7 +2709,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ArchiveInfo()
 					{
 													_strings.Add("EditButton_en-us", "Save");
@@ -2718,7 +2718,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Save
 							/// </summary>
@@ -2771,7 +2771,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public ContentVersions()
 					{
 													_strings.Add("AddButton_en-us", "Add");
@@ -2802,7 +2802,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("TypeColumnTitle", "Тип");
 											}
 
-
+					
 											    /// <summary>
 							/// Add
 							/// </summary>
@@ -3097,7 +3097,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Filter()
 					{
 													_strings.Add("ApplyFilterButton_en-us", "Filter");
@@ -3110,7 +3110,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RegionsParameter", "Регионы");
 											}
 
-
+					
 											    /// <summary>
 							/// Filter
 							/// </summary>
@@ -3207,7 +3207,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Index()
 					{
 													_strings.Add("ArchiveTabTitle_en-us", "Archive");
@@ -3228,7 +3228,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("WidgetsTabTitle", "Виджеты");
 											}
 
-
+					
 											    /// <summary>
 							/// Archive
 							/// </summary>
@@ -3413,7 +3413,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Info()
 					{
 													_strings.Add("EditButton_en-us", "Save");
@@ -3422,7 +3422,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Save
 							/// </summary>
@@ -3475,7 +3475,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Regions()
 					{
 													_strings.Add("AddButton_en-us", "Add");
@@ -3494,7 +3494,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RegionTabTitle", "Регионы");
 											}
 
-
+					
 											    /// <summary>
 							/// Add
 							/// </summary>
@@ -3657,7 +3657,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Toolbar()
 					{
 													_strings.Add("AddChildPageItem_en-us", "Add subsection");
@@ -3680,7 +3680,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshItem", "Обновить");
 											}
 
-
+					
 											    /// <summary>
 							/// Add subsection
 							/// </summary>
@@ -3887,7 +3887,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 				{
 					private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-
+					
 					public Widgets()
 					{
 													_strings.Add("AddButton_en-us", "Add");
@@ -3895,6 +3895,7 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("DeleteButton_en-us", "Delete");
 													_strings.Add("EditButton_en-us", "Edit");
 													_strings.Add("NameColumnDiscriminatorName_en-us", "Type");
+													_strings.Add("NameColumnRegion_en-us", "Regions");
 													_strings.Add("NameColumnSortOrder_en-us", "Order");
 													_strings.Add("NameColumnStatusName_en-us", "Status");
 													_strings.Add("NameColumnTitle_en-us", "Name");
@@ -3918,9 +3919,10 @@ namespace QA.Engine.Administration.WebApp.Resources
 													_strings.Add("RefreshButton", "Обновить");
 													_strings.Add("TitleColumnId", "Ид.");
 													_strings.Add("TitleColumnTitle", "Заголовок");
+													_strings.Add("NameColumnRegion", "Регионы");
 											}
 
-
+					
 											    /// <summary>
 							/// Add
 							/// </summary>
@@ -4025,6 +4027,28 @@ namespace QA.Engine.Administration.WebApp.Resources
 									if (_strings.ContainsKey("NameColumnDiscriminatorName"))
 									{
 										return _strings["NameColumnDiscriminatorName"];
+									}
+
+									return string.Empty;
+								}
+								set {}
+							}
+												    /// <summary>
+							/// Regions
+							/// </summary>
+							[DataMember]
+							public string NameColumnRegion
+							{
+								get
+								{
+									if (_strings.ContainsKey("NameColumnRegion" + CultureInfo.CurrentUICulture.Name.ToLower()))
+									{
+										return _strings["NameColumnRegion" + CultureInfo.CurrentUICulture.Name.ToLower()];
+									}
+
+									if (_strings.ContainsKey("NameColumnRegion"))
+									{
+										return _strings["NameColumnRegion"];
 									}
 
 									return string.Empty;
