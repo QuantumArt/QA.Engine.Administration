@@ -1241,7 +1241,9 @@
     <Content Include="Views\SiteMap\App_LocalResources\AjaxRemove.cshtml.resx" />
     <Content Include="Views\SiteMap\App_LocalResources\Info.cshtml.resx" />
     <Content Include="Views\SiteMap\App_LocalResources\Regions.cshtml.resx" />
-    <Content Include="Views\SiteMap\App_LocalResources\Widgets.cshtml.resx" />
+    <Content Include="Views\SiteMap\App_LocalResources\Widgets.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\SiteMap\App_LocalResources\ContentVersions.cshtml.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -1265,11 +1267,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>33168</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2020/sitemap</IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
