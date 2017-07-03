@@ -37,7 +37,7 @@ namespace QA.Engine.Administration.WebApp.App_Start
                  {
                      var str = m.Regions == null
                          ? string.Empty
-                         : string.Join(", ", m.Regions.OrderBy(o => o.Alias).Select(r => r.Alias).ToList());
+                         : string.Join(", ", m.Regions.OrderBy(o => o.Alias).Select(r => r.Alias ?? r.Title).ToList());
 
                      if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str) || str.Length == 0 || str.Length <= AppSettings.RegionStringLetterCount)
                      {

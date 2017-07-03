@@ -38,6 +38,10 @@ if (jQuery.type(sitemap.widgets) == "undefined") {
                 title: SiteMap.Widgets.NameColumnZoneName
             },
             {
+              field: MvcJs.ViewModels.SiteMap.SiteMapViewModel.Props.RegionsString.Id,
+              title: SiteMap.Widgets.NameColumnRegion
+            },
+            {
                 field: MvcJs.ViewModels.SiteMap.SiteMapViewModel.Props.DiscriminatorTitle.Id,
                 title: SiteMap.Widgets.NameColumnDiscriminatorName
             },
