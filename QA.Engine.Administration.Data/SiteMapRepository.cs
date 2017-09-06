@@ -81,6 +81,24 @@ namespace QA.Engine.Administration.Data
 
         protected virtual IList<QPAbstractItem> BuildSiteMapQuery(SiteMapItemType type, int[] parentId, int? cultureId, int[] selectedRegions, bool isArchive, bool useHierarchyRegionsFilter)
         {
+
+            const int maxParentIdsPerRequest = 500;
+
+            //parentId может содержать слишком много элементов, больше чем позволяет использовать SQL WHERE IN(...)
+            //в таком случаи разобьем на несколько запросов
+            if (parentId != null && parentId.Length > maxParentIdsPerRequest)
+            {
+                var result = new List<QPAbstractItem>();
+                for (var i = 0; i < (float)parentId.Length / maxParentIdsPerRequest; i++)
+                {
+                    int[] page = parentId.Skip(i * maxParentIdsPerRequest).Take(maxParentIdsPerRequest).ToArray();
+                    result.AddRange(BuildSiteMapQuery(type, page, cultureId, selectedRegions, isArchive, useHierarchyRegionsFilter));
+                }
+
+                return result;
+            }
+
+
             var query = GetAllQuery<QPAbstractItem>();
             if (isArchive)
             {
