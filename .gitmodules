@@ -1,3 +1,3 @@
 [submodule "QA.Engine.Administration.Configs"]
 	path = QA.Engine.Administration.Configs
-	url = http://tfs.artq.com:8080/tfs/QuantumartCollection/QA.Core/_git/QA.Engine.Administration.Configs
+	url = ../../QA.Core/_git/QA.Engine.Administration.Configs
